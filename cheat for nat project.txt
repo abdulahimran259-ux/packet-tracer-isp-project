@@ -1,0 +1,43 @@
+router 6 configuration
+enable
+configure terminal
+interafce fastethernet0/0
+ip address 10.10.10.3 255.0.0.0
+ip address 10.10.10.3 255.0.0.0
+no shutdown
+ port is up 
+exit
+interface fastethernet0/1
+ip address 200.0.0.1 255.255.255.0
+no shut
+ports is up
+ router ospf 1
+interface fa0/1
+ip ospf 1 area 0
+interface fa0/0
+ip ospf 1 area 0
+ for save configuration use wr with out inside the configure terminal
+and use do inside the config
+ show ip route command for display ip routing table.
+
+
+
+
+
+
+
+
+router 7 configuration
+all process is same just like router 6 
+but main thing is nat
+connecting the isp with the routers command started:
+ip nat inside source list 1 interface ethernet1/0 overload
+int ethernet1/0
+ip nat outside
+int fa0/1
+ip nat inside
+int fa0/0
+do wr
+for coneecting the previous router with isp 
+default-information originate
+do wr
